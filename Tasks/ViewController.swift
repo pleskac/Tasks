@@ -12,7 +12,7 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet var tableView: UIView!
-    var items : [String] = [];
+    var tasks : [String] = [];
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,16 +25,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return items.count;
+        return tasks.count;
     }
     
     // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
     // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Default")
-        cell.textLabel?.text = items[indexPath.row]
-        cell.detailTextLabel?.text = "Test"
-        return cell
+        var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as? UITableViewCell;
+        if cell == nil {
+            cell = UITableViewCell(style: .Default, reuseIdentifier: "Cell");
+        }
+        
+        cell!.textLabel?.text = self.tasks[indexPath.row];
+        
+        //let cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Default")
+        //cell.textLabel?.text = items[indexPath.row]
+        //cell.detailTextLabel?.text = "Test"
+        return cell!
     }
     
 
