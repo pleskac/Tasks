@@ -15,7 +15,16 @@ class NewTaskViewController: UIViewController {
     
     @IBOutlet var textField: UITextField!
     
+    @IBAction func done(sender: UIBarButtonItem) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     @IBAction func saveTask(sender: UIButton) {
+        if self.textField.text == "" {
+            return
+        }
+        
+        //TODO
     }
     
     override func viewDidLoad(){

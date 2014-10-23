@@ -24,6 +24,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("taskSegue", sender: self.tasks[indexPath.row])
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var destination = segue.destinationViewController as UIViewController;
+        
+        if(segue.identifier == "taskSegue"){
+            destination.setValue(sender, forKeyPath: "task")
+        }
+        else{
+            destination = segue.destinationViewController.topViewController
+        }
+        
+        destination.setValue(self, forKeyPath: "delegate")
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return tasks.count;
     }
