@@ -31,6 +31,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var destination = segue.destinationViewController as UIViewController;
         
+        // Error this line when pressing add button
         if(segue.identifier == "taskSegue"){
             destination.setValue(sender, forKeyPath: "task")
         }
