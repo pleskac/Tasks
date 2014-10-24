@@ -30,7 +30,7 @@
                     <navigationItem key="navigationItem" title="Tasks" id="v9n-dN-h7p">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="zG5-TO-cfN">
                             <connections>
-                                <segue destination="6br-n5-EGq" kind="presentation" id="nJf-ip-5Og"/>
+                                <segue destination="6br-n5-EGq" kind="presentation" identifier="newTaskSegue" id="nJf-ip-5Og"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -55,10 +55,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e8w-Bf-9v0">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="e8w-Bf-9v0">
                                 <rect key="frame" x="92" y="121" width="416" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zkv-KY-GxZ">
                                 <rect key="frame" x="92" y="182" width="416" height="50"/>
@@ -74,11 +75,21 @@
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="Zkv-KY-GxZ" secondAttribute="centerY" constant="93" id="4Uf-4S-Ris"/>
                             <constraint firstAttribute="centerY" secondItem="e8w-Bf-9v0" secondAttribute="centerY" constant="164" id="HUE-HH-F9S"/>
+                            <constraint firstAttribute="centerY" secondItem="Zkv-KY-GxZ" secondAttribute="centerY" constant="93" id="Kdd-d0-rUU"/>
                             <constraint firstAttribute="centerX" secondItem="Zkv-KY-GxZ" secondAttribute="centerX" id="Srr-5n-bp0"/>
                             <constraint firstAttribute="centerX" secondItem="e8w-Bf-9v0" secondAttribute="centerX" id="moO-jr-ggF"/>
+                            <constraint firstAttribute="centerY" secondItem="e8w-Bf-9v0" secondAttribute="centerY" constant="164" id="rcw-b9-lBY"/>
                             <constraint firstAttribute="centerY" secondItem="Zkv-KY-GxZ" secondAttribute="centerY" id="ss6-LY-6Dg"/>
                             <constraint firstAttribute="centerY" secondItem="e8w-Bf-9v0" secondAttribute="centerY" id="yy8-Qk-Jzs"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="HUE-HH-F9S"/>
+                                <exclude reference="yy8-Qk-Jzs"/>
+                                <exclude reference="Kdd-d0-rUU"/>
+                                <exclude reference="ss6-LY-6Dg"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="New Task" id="bRF-4Z-Tuz">
                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="cl8-bm-bAL">
