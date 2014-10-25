@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="775-ij-5OM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Tasks-->
@@ -36,7 +37,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="8bC-Xf-vdC" id="Aeh-sf-yZ2"/>
-                        <segue destination="JpU-Kp-m4S" kind="showDetail" identifier="taskSegue" id="USz-ew-bgx"/>
+                        <segue destination="oRW-pS-A0d" kind="showDetail" identifier="taskSegue" id="USz-ew-bgx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -55,8 +56,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="e8w-Bf-9v0">
-                                <rect key="frame" x="92" y="121" width="416" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="e8w-Bf-9v0">
+                                <rect key="frame" x="46" y="121" width="508" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -77,7 +78,9 @@
                             <constraint firstAttribute="centerY" secondItem="e8w-Bf-9v0" secondAttribute="centerY" constant="164" id="HUE-HH-F9S"/>
                             <constraint firstAttribute="centerY" secondItem="Zkv-KY-GxZ" secondAttribute="centerY" constant="93" id="Kdd-d0-rUU"/>
                             <constraint firstAttribute="centerX" secondItem="Zkv-KY-GxZ" secondAttribute="centerX" id="Srr-5n-bp0"/>
+                            <constraint firstItem="e8w-Bf-9v0" firstAttribute="leading" secondItem="dBh-8a-dIS" secondAttribute="leadingMargin" constant="30" id="Ysl-HX-RpW"/>
                             <constraint firstAttribute="centerX" secondItem="e8w-Bf-9v0" secondAttribute="centerX" id="moO-jr-ggF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="e8w-Bf-9v0" secondAttribute="trailing" constant="30" id="nBc-41-MVJ"/>
                             <constraint firstAttribute="centerY" secondItem="e8w-Bf-9v0" secondAttribute="centerY" constant="164" id="rcw-b9-lBY"/>
                             <constraint firstAttribute="centerY" secondItem="Zkv-KY-GxZ" secondAttribute="centerY" id="ss6-LY-6Dg"/>
                             <constraint firstAttribute="centerY" secondItem="e8w-Bf-9v0" secondAttribute="centerY" id="yy8-Qk-Jzs"/>
@@ -106,7 +109,7 @@
             </objects>
             <point key="canvasLocation" x="2624" y="311"/>
         </scene>
-        <!--Task View Controller-->
+        <!--Complete Task-->
         <scene sceneID="SiW-GT-QpK">
             <objects>
                 <viewController id="JpU-Kp-m4S" customClass="TaskViewController" customModule="Tasks" customModuleProvider="target" sceneMemberID="viewController">
@@ -136,13 +139,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Complete Task" id="lTx-3j-31v">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="f20-a5-IDf"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="taskLabel" destination="qRy-CI-9Rc" id="oZi-sX-jUd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gb6-8o-8kK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1098" y="1081"/>
+            <point key="canvasLocation" x="1910" y="1081"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XhM-sN-ws6">
@@ -179,6 +185,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C8c-Oj-tx4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1812" y="311"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vc2-7V-opo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oRW-pS-A0d" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n7f-0v-L6z">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="JpU-Kp-m4S" kind="relationship" relationship="rootViewController" id="XfY-J3-egF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uBV-OD-xVn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1098" y="1081"/>
         </scene>
     </scenes>
 </document>

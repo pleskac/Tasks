@@ -27,8 +27,7 @@ class NewTaskViewController: UIViewController {
         var taskListViewControler: ViewController = self.delegate! as ViewController;
         taskListViewControler.tasks.append(self.textField.text);
         
-        
-        //TODO self.close sender
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func viewDidLoad(){
