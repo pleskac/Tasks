@@ -140,7 +140,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Complete Task" id="lTx-3j-31v">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="f20-a5-IDf"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="f20-a5-IDf">
+                            <connections>
+                                <action selector="doneClick:" destination="JpU-Kp-m4S" id="IRU-la-0nI"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="taskLabel" destination="qRy-CI-9Rc" id="oZi-sX-jUd"/>

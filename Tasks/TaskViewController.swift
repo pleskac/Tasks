@@ -13,7 +13,12 @@ class TaskViewController: UIViewController {
     
     @IBOutlet var taskLabel: UILabel!
     
+    @IBAction func doneClick(sender: UIBarButtonItem) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     @IBAction func taskComplete(sender: UIButton) {
+        //todo
     }
     
     var task:String = ""
