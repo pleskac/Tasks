@@ -12,7 +12,7 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet var tableView: UIView!
-    var tasks : [String] = [];
+    var tasks : [String] = ["one", "two"];
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,15 +25,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("taskSegue", sender: self.tasks[indexPath.row])
+        self.performSegueWithIdentifier("completeTaskSegue", sender: self.tasks[indexPath.row])
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var destination = segue.destinationViewController as UIViewController;
         
         NSLog(segue.identifier);
+        NSLog(sender as String);
         // Error this line when pressing add button
-        if(segue.identifier == "taskSegue"){
+        if(segue.identifier == "completeTaskSegue"){
             destination.setValue(sender, forKeyPath: "task")
         }
         else{

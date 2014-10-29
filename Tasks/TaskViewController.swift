@@ -18,7 +18,18 @@ class TaskViewController: UIViewController {
     }
     
     @IBAction func taskComplete(sender: UIButton) {
-        //todo
+        var x = self.delegate as ViewController
+        // THIS IS A BUG
+        //x.tasks.removeLast()
+        
+        for t in 0 ... x.tasks.count - 1{
+            if(x.tasks[t] == task){
+                x.tasks.removeAtIndex(t);
+                break;
+            }
+        }
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     var task:String = ""
@@ -26,6 +37,7 @@ class TaskViewController: UIViewController {
     
     override func viewDidLoad(){
         super.viewDidLoad()
+        self.taskLabel.text = self.task;
         
     }
     
